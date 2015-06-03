@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var imageUrl: String = ""
+    var imageUrl: String = "www.google.co.uk"
     
     @IBOutlet weak var imageURL: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -103,9 +105,15 @@ imageUrl = altResult5! as String
     }
     
     @IBAction func displayImage(sender: UIButton) {
+        var image2 : UIImage = UIImage(named:"notfound")!
         let url = NSURL(string: imageUrl)
         let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-        imageURL.image = UIImage(data: data!)
+        if data != nil {
+            
+           // imageURL.image = UIImage(data: data!)
+            imageURL.image = image2
+        }
+        
     }
     
     
